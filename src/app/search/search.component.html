@@ -1,0 +1,14 @@
+<ng-template #rt let-r="result" let-t="term">
+  <img [src]="r.owner['avatar_url']" class="mr-1" style="width: 16px">
+  <ngb-highlight [result]="r.owner['login']" [term]="t"></ngb-highlight>
+</ng-template>
+
+<input
+  id="typeahead-http"
+  type="text"
+  class="form-control"
+  (selectItem)="onSelectItem($event)"
+  [ngbTypeahead]="search"
+  placeholder="Search for GitHub repositories..."
+  [resultTemplate]="rt"
+/>
